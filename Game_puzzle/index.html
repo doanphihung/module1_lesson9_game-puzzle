@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game puzzle</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="img/1_1.jpg" alt="1" id="1" onclick="changeImage(this.id)">
+    <img src="img/2_2.jpg" alt="2" id="2" onclick="changeImage(this.id)">
+    <img src="img/3_3.jpg" alt="3" id="3" onclick="changeImage(this.id)">
+    <img src="img/2_4.jpg" alt="2" id="4" onclick="changeImage(this.id)">
+    <img src="img/1_5.jpg" alt="1" id="5" onclick="changeImage(this.id)">
+</div>
+
+<script>
+
+    function changeImage(id) {
+        // lấy ra tag
+        let img = document.getElementById(id);
+        let boAnh = img.alt;
+        // Chuyển bộ ảnh
+        boAnh < 3 ? boAnh++ : boAnh = 1;
+        // Gán lại vào tag
+        boAnh = img.alt;
+        img.src = 'img/' + boAnh + '_' + id + '.jpg';
+        checkWin();
+    }
+
+        function checkWin() {
+            let a = document.getElementById('1');
+            let b = document.getElementById('2');
+            let c = document.getElementById('3');
+            let d = document.getElementById('4');
+            let e = document.getElementById('5');
+            if ( a.alt == b.alt && a.alt == c.alt && a.alt == e.alt && a.alt== d.alt  ) {
+                a.style.border = "2px solid red";
+                b.style.border = "2px solid red";
+                c.style.border = "2px solid red";
+                d.style.border = "2px solid red";
+                e.style.border = "2px solid red";
+            }
+        }
+
+</script>
+</body>
+</html>
